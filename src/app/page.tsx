@@ -1,343 +1,338 @@
 "use client";
 
-import {
-  Target,
-  BarChart3,
-  Zap,
-  TrendingUp,
-  LockOpen,
-  Phone,
-  ArrowRight,
-  Send,
-  Instagram,
-  Linkedin,
-  MapPin,
-} from "lucide-react";
+import { Instagram, Linkedin } from "lucide-react";
+import Image from "next/image";
 
-/* ──────────────────────────────────────────────
-   Sparkle dots – reusable across dark sections
-   ────────────────────────────────────────────── */
-const sparkles = Array.from({ length: 30 }, (_, i) => ({
-  id: i,
-  top: `${Math.random() * 100}%`,
-  left: `${Math.random() * 100}%`,
-  size: 2 + Math.random() * 4,
-  dur: `${2 + Math.random() * 4}s`,
-  delay: `${Math.random() * 4}s`,
-}));
-
-function Sparkles() {
-  return (
-    <>
-      {sparkles.map((s) => (
-        <span
-          key={s.id}
-          className="sparkle absolute rounded-full bg-white pointer-events-none"
-          style={{
-            top: s.top,
-            left: s.left,
-            width: s.size,
-            height: s.size,
-            "--dur": s.dur,
-            "--delay": s.delay,
-          } as React.CSSProperties}
-        />
-      ))}
-    </>
-  );
-}
-
-/* ──────────────────────────────────────────────
-   Accent gradient lines (indigo + blue)
-   ────────────────────────────────────────────── */
-function AccentLines() {
-  return (
-    <>
-      <div
-        className="accent-line-pulse absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 h-[2px] w-[min(1040px,90%)]"
-        style={{
-          background:
-            "linear-gradient(to right, transparent, #6366F1, transparent)",
-          opacity: 0.6,
-        }}
-      />
-      <div
-        className="accent-line-pulse-slow absolute left-1/2 -translate-x-1/2 top-[52%] h-[1px] w-[min(880px,75%)]"
-        style={{
-          background:
-            "linear-gradient(to right, transparent, #38BDF8, transparent)",
-          opacity: 0.4,
-        }}
-      />
-    </>
-  );
-}
-
-/* ══════════════════════════════════════════════
-   PAGE
-   ══════════════════════════════════════════════ */
 export default function Home() {
   return (
     <>
-      {/* ─── HEADER ─── */}
-      <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.03]" style={{ background: "#08081AEE" }}>
-        <div className="mx-auto max-w-[1440px] flex items-center justify-between px-6 md:px-20 py-4">
-          <a href="#" className="font-[var(--font-space)] text-xl font-bold text-white tracking-[-1px]" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-            nuve
-          </a>
-          <nav className="flex items-center gap-6">
-            <a href="#tjenester" className="hidden sm:inline text-sm text-white/50 hover:text-white transition" style={{ fontFamily: "var(--font-inter)" }}>Tjenester</a>
-            <a href="#resultater" className="hidden sm:inline text-sm text-white/50 hover:text-white transition" style={{ fontFamily: "var(--font-inter)" }}>Resultater</a>
-            <a href="#om-oss" className="hidden sm:inline text-sm text-white/50 hover:text-white transition" style={{ fontFamily: "var(--font-inter)" }}>Om oss</a>
-            <a
-              href="#kontakt"
-              className="text-[13px] font-semibold text-white rounded-md px-5 py-2"
-              style={{ fontFamily: "var(--font-inter)", background: "#5B8C9A" }}
-            >
-              Kontakt
-            </a>
-          </nav>
-        </div>
-      </header>
-
       {/* ─── HERO ─── */}
-      <section className="relative w-full h-[700px] bg-[#08081A] overflow-hidden flex items-center justify-center">
-        <Sparkles />
-        <AccentLines />
+      <section className="relative w-full overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero.jpg"
+            alt="Norwegian mountain landscape"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-[#0A0A0A]/60" />
+        </div>
 
-        <div className="relative z-10 text-center px-4">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 pt-[160px] pb-[180px]">
           <h1
-            className="text-[80px] sm:text-[120px] md:text-[180px] font-bold text-white leading-none"
+            className="text-[56px] md:text-[88px] font-bold text-white leading-none tracking-[-2px]"
             style={{ fontFamily: "var(--font-space-grotesk)" }}
           >
             nuve
           </h1>
-          <p className="mt-4 text-lg sm:text-2xl text-white/80" style={{ fontFamily: "var(--font-inter)" }}>
-            Vi gjor sok om til salg
-          </p>
+
+          <div className="mt-[40px] w-[40px] h-[1px] bg-white/[0.27]" />
+
           <p
-            className="mt-2 text-[14px] text-white/25 tracking-[4px] uppercase"
-            style={{ fontFamily: "var(--font-bebas-neue)" }}
-          >
-            Search that converts
-          </p>
-          <a
-            href="#kontakt"
-            className="inline-block mt-8 px-9 py-3.5 rounded-lg text-base font-semibold text-white bg-[#6366F1] hover:bg-[#5558E6] transition"
+            className="mt-[40px] text-[15px] md:text-[17px] text-white/[0.73] leading-relaxed max-w-[500px] tracking-[0.2px]"
             style={{ fontFamily: "var(--font-inter)" }}
           >
-            Book strategisamtale
-          </a>
+            Spesialisert innen betalt sok og datadrevet optimalisering.
+          </p>
         </div>
+      </section>
 
-        {/* bottom gradient */}
-        <div className="absolute bottom-0 left-0 right-0 h-[200px] pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, #08081A)" }} />
+      {/* ─── SPECIALIZATION ─── */}
+      <section className="bg-[#F7F6F3] px-8 md:px-[100px] py-[80px] md:py-[120px]">
+        <div className="max-w-[960px]">
+          <h2
+            className="text-[32px] md:text-[48px] font-semibold text-[#1A1A1A] leading-[1.1]"
+            style={{ fontFamily: "var(--font-space-grotesk)" }}
+          >
+            Spesialisert. Ikke generell.
+          </h2>
+
+          <p
+            className="mt-[48px] text-[16px] md:text-[18px] text-[#6B6B6B] leading-[1.6] max-w-[560px]"
+            style={{ fontFamily: "var(--font-inter)" }}
+          >
+            Ikke alt. Kun det som fungerer:
+            <br />
+            betalt sok og datadrevet optimalisering.
+          </p>
+
+          <div className="mt-[48px] w-[48px] h-[1px] bg-[#1A1A1A]" />
+
+          <div className="mt-[32px] grid grid-cols-1 sm:grid-cols-2 gap-y-[20px] gap-x-[80px] max-w-[600px]">
+            {[
+              "Transparent rapportering",
+              "Ingen bindingstid",
+              "Direkte kontakt \u2014 ingen mellomledd",
+              "Fokus p\u00e5 ROI, ikke aktivitet",
+            ].map((point) => (
+              <p
+                key={point}
+                className="text-[15px] font-medium text-[#1A1A1A] leading-[1.4]"
+                style={{ fontFamily: "var(--font-inter)" }}
+              >
+                {point}
+              </p>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ─── SERVICES ─── */}
-      <section id="tjenester" className="bg-[#F7F6F3] py-16 md:py-20 px-6 md:px-20">
-        <div className="mx-auto max-w-[1440px]">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#6366F1] mb-12" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-            TJENESTER
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <section
+        id="tjenester"
+        className="bg-[#F7F6F3] px-8 md:px-[100px] py-[80px] md:py-[120px]"
+      >
+        <div className="max-w-[960px]">
+          {/* Section label */}
+          <div className="flex items-center gap-[12px] mb-[48px]">
+            <div className="w-[24px] h-[1px] bg-[#1A1A1A]" />
+            <span
+              className="text-[12px] font-semibold text-[#6B6B6B] tracking-[3px]"
+              style={{ fontFamily: "var(--font-inter)" }}
+            >
+              TJENESTER
+            </span>
+          </div>
+
+          {/* Services */}
+          <div className="flex flex-col">
             {[
-              { Icon: Target, title: "Google Ads", desc: "Målrettet annonsering som treffer riktig publikum og maksimerer avkastningen på hver krone." },
-              { Icon: BarChart3, title: "Tracking & Analytics", desc: "Dyp innsikt i brukeratferd og konverteringer med avansert sporing og datadrevne analyser." },
-              { Icon: Zap, title: "Performance Strategy", desc: "Skreddersydde strategier som driver vekst og sikrer bærekraftige resultater over tid." },
-              { Icon: TrendingUp, title: "Optimization & Scaling", desc: "Kontinuerlig optimalisering og skalering for å ta markedsføringen din til neste nivå." },
-            ].map(({ Icon, title, desc }) => (
-              <div
-                key={title}
-                className="bg-[#F7F6F3] rounded-b-lg p-7 flex flex-col gap-4 border border-[#E0DED8] border-t-[3px] border-t-[#6366F1]"
-                style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}
-              >
-                <Icon size={32} className="text-[#6366F1]" />
-                <h3 className="text-xl font-semibold text-[#1A1A1A]" style={{ fontFamily: "var(--font-space-grotesk)" }}>{title}</h3>
-                <p className="text-sm text-[#6B6B6B] leading-relaxed" style={{ fontFamily: "var(--font-inter)" }}>{desc}</p>
+              {
+                title: "Betalt sok",
+                desc: "Malrettet annonsering i Google Ads med fokus pa konvertering.",
+              },
+              {
+                title: "Analyse og sporing",
+                desc: "Korrekt datagrunnlag for presise beslutninger.",
+              },
+              {
+                title: "Strategi og optimalisering",
+                desc: "Kontinuerlig forbedring basert pa data.",
+              },
+            ].map((service, i) => (
+              <div key={service.title}>
+                {i > 0 && (
+                  <div className="w-full h-[1px] bg-[#E0DED8]" />
+                )}
+                <div className="py-[48px] first:pt-0 last:pb-0">
+                  <h3
+                    className="text-[24px] font-semibold text-[#1A1A1A]"
+                    style={{ fontFamily: "var(--font-space-grotesk)" }}
+                  >
+                    {service.title}
+                  </h3>
+                  <p
+                    className="mt-[8px] text-[16px] text-[#6B6B6B] max-w-[600px]"
+                    style={{ fontFamily: "var(--font-inter)" }}
+                  >
+                    {service.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ─── STATS BAR ─── */}
-      <section className="relative bg-[#08081A] h-auto md:h-[180px] overflow-hidden flex items-center">
-        <div className="diagonal-lines absolute inset-0" />
-        <div className="relative z-10 mx-auto max-w-[1440px] w-full grid grid-cols-2 md:grid-cols-4 gap-8 px-6 md:px-20 py-10 md:py-0">
-          {[
-            { value: "847%", label: "Gjennomsnittlig ROAS" },
-            { value: "-43%", label: "Lavere CPA i snitt" },
-            { value: "2.4x", label: "Økning i konverteringer" },
-            { value: "100%", label: "Kunder med positiv ROI" },
-          ].map(({ value, label }) => (
-            <div key={value} className="text-center">
-              <div className="text-3xl md:text-[44px] font-bold text-[#6366F1]" style={{ fontFamily: "var(--font-space-grotesk)" }}>{value}</div>
-              <div className="mt-1 text-[13px] text-[#999]" style={{ fontFamily: "var(--font-inter)" }}>{label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ─── TESTIMONIAL ─── */}
-      <section id="resultater" className="relative bg-[#F7F6F3] py-16 md:py-20 px-6 md:px-20 overflow-hidden">
-        {/* mirrored decorative text */}
-        <div className="mirror-text absolute top-8 right-10 text-[80px] md:text-[120px] font-bold text-[#0D0D0D]/[0.03] leading-none select-none" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-          Det endret alt.
-        </div>
-
-        <div className="relative mx-auto max-w-[1440px]">
-          <span className="text-[96px] font-bold text-[#6366F1] leading-none block -mb-6" style={{ fontFamily: "var(--font-space-grotesk)" }}>&laquo;</span>
-          <blockquote
-            className="text-3xl sm:text-4xl md:text-[52px] font-bold text-[#141432] leading-[1.15] max-w-4xl"
+      {/* ─── SELECTED CLIENTS ─── */}
+      <section className="bg-[#F7F6F3] px-8 md:px-[100px] py-[80px] md:py-[100px]">
+        <div className="max-w-[960px] mx-auto text-center">
+          <h2
+            className="text-[22px] font-medium text-[#1A1A1A] tracking-[-0.3px]"
             style={{ fontFamily: "var(--font-space-grotesk)" }}
           >
-            Nuve ga oss 1,240% ROAS på tre måneder. Det endret alt.
-          </blockquote>
-          <p className="mt-8 text-[13px] text-[#999] tracking-[2px] uppercase" style={{ fontFamily: "var(--font-inter)" }}>
-            DAGLIG LEDER, NETTBUTIKK.NO
-          </p>
+            Utvalgte kunder
+          </h2>
+
+          <div className="mt-[48px] flex flex-wrap items-center justify-center gap-[32px]">
+            {/* Real logos */}
+            <div className="relative h-[44px] w-[120px] rounded-[5px] overflow-hidden bg-[#EBEBEB] flex items-center justify-center p-2">
+              <Image
+                src="/images/logos/blst.jpeg"
+                alt="BLST"
+                fill
+                className="object-contain p-2"
+              />
+            </div>
+            <div className="relative h-[44px] w-[120px] rounded-[5px] overflow-hidden bg-[#EBEBEB] flex items-center justify-center p-2">
+              <Image
+                src="/images/logos/vpg.svg"
+                alt="VPG"
+                fill
+                className="object-contain p-2"
+              />
+            </div>
+            <div className="relative h-[50px] w-[140px] rounded-[5px] overflow-hidden bg-[#1A1A1A] flex items-center justify-center p-2">
+              <Image
+                src="/images/logos/hovedlogo.png"
+                alt="Hovedlogo"
+                fill
+                className="object-contain p-2"
+              />
+            </div>
+
+            {/* Placeholder logos */}
+            {["Vipps", "Equinor", "Kahoot"].map((name) => (
+              <div
+                key={name}
+                className="h-[44px] w-[96px] rounded-[5px] bg-[#EBEBEB] flex items-center justify-center"
+              >
+                <span
+                  className="text-[14px] font-semibold text-[#8A8A8A]"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  {name}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ─── CTA / CONTACT ─── */}
-      <section id="kontakt" className="relative bg-[#08081A] min-h-[500px] overflow-hidden py-16 md:py-20 px-6 md:px-20">
-        <Sparkles />
-        <AccentLines />
-
-        {/* mirrored decorative text */}
-        <div className="mirror-text absolute bottom-10 left-10 text-[80px] md:text-[120px] font-bold text-white/[0.03] leading-none select-none" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-          Resultater.
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-[1440px] grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left */}
-          <div className="flex flex-col gap-6">
-            <span className="inline-flex items-center gap-2 text-[11px] font-semibold text-[#5B8C9A] tracking-[2px] uppercase border border-[#6366F1]/40 rounded-full px-4 py-1.5 w-fit" style={{ fontFamily: "var(--font-inter)" }}>
-              <span className="w-2 h-2 rounded-full bg-[#5B8C9A]" />
-              KLAR FOR VEKST?
-            </span>
-            <h2 className="text-4xl sm:text-5xl md:text-[64px] font-extrabold text-white leading-[1.05] tracking-[-3px]" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-              La oss snakke om resultater.
+      {/* ─── CONTACT ─── */}
+      <section
+        id="kontakt"
+        className="bg-[#F7F6F3] px-8 md:px-[100px] lg:px-[200px] py-[80px] md:py-[120px]"
+      >
+        <div className="max-w-[960px] mx-auto">
+          {/* Header */}
+          <div className="text-center">
+            <h2
+              className="text-[36px] md:text-[42px] font-medium text-[#1A1A1A] tracking-[-1px]"
+              style={{ fontFamily: "var(--font-space-grotesk)" }}
+            >
+              Kontakt
             </h2>
-            <p className="text-base text-white/50 leading-relaxed max-w-lg" style={{ fontFamily: "var(--font-inter)" }}>
-              Book en uforpliktende strategisamtale og finn ut hvordan vi kan hjelpe deg med å vokse.
-            </p>
-            <a
-              href="#kontakt"
-              className="inline-flex items-center gap-2 mt-2 px-7 py-3.5 rounded-lg text-base font-semibold text-white bg-[#5B8C9A] hover:bg-[#4e7a87] transition w-fit shadow-lg"
+            <p
+              className="mt-[16px] text-[16px] text-[#6B6B6B]"
               style={{ fontFamily: "var(--font-inter)" }}
             >
-              Book strategisamtale <ArrowRight size={18} />
-            </a>
+              Ta gjerne kontakt om det er relevant. Kapasiteten er begrenset.
+            </p>
           </div>
 
-          {/* Right — contact form */}
-          <div className="bg-white/[0.04] border border-white/[0.06] rounded-xl p-8 md:p-10">
-            <h3 className="text-[22px] font-semibold text-white mb-6" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-              Send oss en melding
-            </h3>
-            <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <label className="flex flex-col gap-1">
-                  <span className="text-xs font-medium text-white/90 tracking-[0.5px]" style={{ fontFamily: "var(--font-inter)" }}>Fornavn</span>
-                  <input className="bg-white/[0.06] border border-white/[0.1] rounded-md px-3.5 py-3 text-sm text-white placeholder:text-white/30 outline-none focus:border-[#5B8C9A] transition" />
-                </label>
-                <label className="flex flex-col gap-1">
-                  <span className="text-xs font-medium text-white/90 tracking-[0.5px]" style={{ fontFamily: "var(--font-inter)" }}>Etternavn</span>
-                  <input className="bg-white/[0.06] border border-white/[0.1] rounded-md px-3.5 py-3 text-sm text-white placeholder:text-white/30 outline-none focus:border-[#5B8C9A] transition" />
-                </label>
+          {/* Two columns */}
+          <div className="mt-[64px] grid grid-cols-1 md:grid-cols-2 gap-[80px]">
+            {/* Left — contact info */}
+            <div className="flex flex-col gap-[28px] pt-[8px]">
+              <div>
+                <span
+                  className="text-[12px] font-medium text-[#6B6B6B] tracking-[1px]"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  E-post
+                </span>
+                <p
+                  className="mt-[6px] text-[16px] text-[#1A1A1A]"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  post@nuve.no
+                </p>
               </div>
-              <label className="flex flex-col gap-1">
-                <span className="text-xs font-medium text-white/90 tracking-[0.5px]" style={{ fontFamily: "var(--font-inter)" }}>E-post</span>
-                <input type="email" className="bg-white/[0.06] border border-white/[0.1] rounded-md px-3.5 py-3 text-sm text-white placeholder:text-white/30 outline-none focus:border-[#5B8C9A] transition" />
-              </label>
-              <label className="flex flex-col gap-1">
-                <span className="text-xs font-medium text-white/90 tracking-[0.5px]" style={{ fontFamily: "var(--font-inter)" }}>Melding</span>
-                <textarea rows={4} className="bg-white/[0.06] border border-white/[0.1] rounded-md px-3.5 py-3 text-sm text-white placeholder:text-white/30 outline-none focus:border-[#5B8C9A] transition resize-none" />
-              </label>
-              <button
-                type="submit"
-                className="flex items-center justify-center gap-2 w-full mt-2 px-6 py-3.5 rounded-lg text-base font-semibold text-white bg-[#5B8C9A] hover:bg-[#4e7a87] transition"
-                style={{ fontFamily: "var(--font-inter)" }}
-              >
-                Send melding <Send size={16} />
-              </button>
+              <div>
+                <span
+                  className="text-[12px] font-medium text-[#6B6B6B] tracking-[1px]"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  Telefon
+                </span>
+                <p
+                  className="mt-[6px] text-[16px] text-[#1A1A1A]"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  +47 936 84 801
+                </p>
+              </div>
+            </div>
+
+            {/* Right — form */}
+            <form
+              className="flex flex-col gap-[20px]"
+              onSubmit={(e) => e.preventDefault()}
+            >
+              <div>
+                <label
+                  className="block text-[12px] font-medium text-[#7A7A7A] tracking-[0.5px] mb-[8px]"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  Navn
+                </label>
+                <input
+                  type="text"
+                  className="w-full h-[48px] bg-white border border-[#E0DED8] rounded-[4px] px-[16px] text-[15px] text-[#1A1A1A] outline-none focus:border-[#5B8C9A] transition-colors"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                />
+              </div>
+              <div>
+                <label
+                  className="block text-[12px] font-medium text-[#7A7A7A] tracking-[0.5px] mb-[8px]"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  E-post
+                </label>
+                <input
+                  type="email"
+                  className="w-full h-[48px] bg-white border border-[#E0DED8] rounded-[4px] px-[16px] text-[15px] text-[#1A1A1A] outline-none focus:border-[#5B8C9A] transition-colors"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                />
+              </div>
+              <div>
+                <label
+                  className="block text-[12px] font-medium text-[#7A7A7A] tracking-[0.5px] mb-[8px]"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  Melding
+                </label>
+                <textarea
+                  className="w-full h-[140px] bg-white border border-[#E0DED8] rounded-[4px] px-[16px] py-[14px] text-[15px] text-[#1A1A1A] outline-none focus:border-[#5B8C9A] transition-colors resize-none"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                />
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  className="px-[28px] py-[12px] bg-[#5B8C9A] text-white text-[14px] font-medium rounded-[4px] hover:bg-[#4e7a87] transition-colors"
+                  style={{ fontFamily: "var(--font-inter)" }}
+                >
+                  Send
+                </button>
+              </div>
             </form>
           </div>
         </div>
       </section>
 
-      {/* ─── SPESIALISERT (Why Nuve) ─── */}
-      <section id="om-oss" className="relative bg-[#08081A] py-16 md:py-20 px-6 md:px-20 overflow-hidden">
-        <Sparkles />
-        <AccentLines />
-
-        {/* mirrored decorative text */}
-        <div className="mirror-text absolute top-10 right-10 text-[80px] md:text-[120px] font-bold text-white/[0.03] leading-none select-none" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-          SPESIALISERT
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-[1440px]">
-          <span className="text-[13px] font-semibold text-[#5B8C9A] tracking-[2px] uppercase" style={{ fontFamily: "var(--font-inter)" }}>
-            HVORFOR NUVE
-          </span>
-          <h2 className="mt-4 text-4xl sm:text-5xl md:text-[64px] font-bold text-[#F7F6F3] leading-[1.05]" style={{ fontFamily: "var(--font-space-grotesk)" }}>
-            Spesialisert. Ikke generell.
-          </h2>
-          <p className="mt-6 text-lg text-[#F7F6F3]/70 leading-relaxed max-w-2xl" style={{ fontFamily: "var(--font-inter)" }}>
-            Vi driver ikke med alt mulig. Vi er spesialister på betalt sokeannonsering, og det er det eneste vi gjor. Det betyr at du far et team som lever og puster Google Ads hver eneste dag.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
-            {[
-              { Icon: BarChart3, title: "Transparent rapportering" },
-              { Icon: LockOpen, title: "Ingen bindingstid" },
-              { Icon: Phone, title: "Direkte kontakt — ingen mellomledd" },
-              { Icon: Target, title: "Fokus på ROI, ikke aktivitet" },
-            ].map(({ Icon, title }) => (
-              <div
-                key={title}
-                className="bg-[#1C1C3A] rounded-xl p-8 flex flex-col gap-5 border-t-2 border-t-[#5B8C9A]"
-              >
-                <Icon size={32} className="text-[#5B8C9A]" />
-                <h3 className="text-lg font-semibold text-[#F7F6F3]" style={{ fontFamily: "var(--font-space-grotesk)" }}>{title}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ─── FOOTER ─── */}
-      <footer className="bg-[#08081A] border-t border-white/[0.03] px-6 md:px-20 py-10">
-        <div className="mx-auto max-w-[1440px]">
-          {/* top row */}
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-            <div>
-              <span className="text-xl font-bold text-white tracking-[-1px]" style={{ fontFamily: "var(--font-space-grotesk)" }}>nuve</span>
-              <p className="text-xs text-white/25 tracking-[2px] uppercase mt-1" style={{ fontFamily: "var(--font-bebas-neue)" }}>Search that converts</p>
-            </div>
-            <nav className="flex flex-wrap items-center gap-6 text-sm text-white/50" style={{ fontFamily: "var(--font-inter)" }}>
-              <a href="#tjenester" className="hover:text-white transition">Tjenester</a>
-              <a href="#resultater" className="hover:text-white transition">Resultater</a>
-              <a href="#om-oss" className="hover:text-white transition">Om oss</a>
-              <a href="#kontakt" className="hover:text-white transition">Kontakt</a>
-            </nav>
-            <div className="flex items-center gap-4">
-              <a href="#" className="text-white/40 hover:text-white transition"><Instagram size={20} /></a>
-              <a href="#" className="text-white/40 hover:text-white transition"><Linkedin size={20} /></a>
-            </div>
-          </div>
+      <footer className="bg-[#F7F6F3] border-t border-[#E0DED8] px-8 md:px-[100px] lg:px-[200px] py-[40px]">
+        <div className="max-w-[960px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <span
+            className="text-[20px] font-bold text-[#1A1A1A] tracking-[-0.5px]"
+            style={{ fontFamily: "var(--font-space-grotesk)" }}
+          >
+            nuve
+          </span>
 
-          {/* divider */}
-          <div className="border-t border-white/[0.03] my-8" />
+          <span
+            className="text-[13px] text-[#6B6B6B]"
+            style={{ fontFamily: "var(--font-inter)" }}
+          >
+            Orsta, Norge <span className="text-[#9A9A9A]">&middot;</span> &copy; 2026 Nuve
+          </span>
 
-          {/* bottom row */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[13px]" style={{ fontFamily: "var(--font-inter)" }}>
-            <span className="text-[#555]">&copy; 2026 Nuve. Alle rettigheter reservert.</span>
-            <span className="flex items-center gap-1.5 text-white/[0.18]">
-              <MapPin size={14} /> Orsta, Norge
-            </span>
+          <div className="flex items-center gap-[16px]">
+            <a
+              href="#"
+              className="text-[#6B6B6B] hover:text-[#1A1A1A] transition-colors"
+            >
+              <Linkedin size={18} />
+            </a>
+            <a
+              href="#"
+              className="text-[#6B6B6B] hover:text-[#1A1A1A] transition-colors"
+            >
+              <Instagram size={18} />
+            </a>
           </div>
         </div>
       </footer>

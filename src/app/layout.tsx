@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, Bebas_Neue } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
-  weight: ["600", "700"],
+  weight: ["500", "600", "700"],
 });
 
 const inter = Inter({
@@ -14,16 +14,10 @@ const inter = Inter({
   weight: ["400", "500", "600"],
 });
 
-const bebasNeue = Bebas_Neue({
-  variable: "--font-bebas-neue",
-  subsets: ["latin"],
-  weight: "400",
-});
-
 export const metadata: Metadata = {
-  title: "Nuve — Google Ads Performance Marketing",
+  title: "Nuve — Betalt sok og datadrevet optimalisering",
   description:
-    "Google Ads-spesialister med fokus på målbare resultater. Fra strategi til skalering.",
+    "Spesialisert innen betalt sok og datadrevet optimalisering.",
 };
 
 export default function RootLayout({
@@ -34,12 +28,9 @@ export default function RootLayout({
   return (
     <html
       lang="no"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${bebasNeue.variable} antialiased`}
-      style={{ scrollBehavior: "smooth" }}
+      className={`${spaceGrotesk.variable} ${inter.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#08081A] text-white">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

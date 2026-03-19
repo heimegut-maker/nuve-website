@@ -3,14 +3,10 @@
 @theme inline {
   --font-space: var(--font-space-grotesk);
   --font-inter: var(--font-inter);
-  --font-bebas: var(--font-bebas-neue);
-  --color-accent: #6366F1;
-  --color-teal: #5B8C9A;
-  --color-dark: #08081A;
-  --color-dark-card: #1C1C3A;
-  --color-light: #F7F6F3;
-  --color-text-primary: #141432;
-  --color-text-secondary: #555555;
+  --color-bg: #F7F6F3;
+  --color-text-dark: #1A1A1A;
+  --color-text-muted: #6B6B6B;
+  --color-accent: #5B8C9A;
   --color-border: #E0DED8;
 }
 
@@ -20,47 +16,6 @@ html {
 
 body {
   font-family: var(--font-inter), sans-serif;
-}
-
-/* Sparkle twinkle animation */
-@keyframes twinkle {
-  0%, 100% { opacity: 0.05; }
-  50% { opacity: 0.35; }
-}
-
-.sparkle {
-  animation: twinkle var(--dur, 3s) ease-in-out infinite;
-  animation-delay: var(--delay, 0s);
-}
-
-/* Accent line pulse */
-@keyframes linePulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.7; }
-}
-
-.accent-line-pulse {
-  animation: linePulse 4s ease-in-out infinite;
-}
-
-.accent-line-pulse-slow {
-  animation: linePulse 5s ease-in-out infinite 1s;
-}
-
-/* Diagonal lines pattern */
-.diagonal-lines {
-  background-image: repeating-linear-gradient(
-    20deg,
-    transparent,
-    transparent 60px,
-    rgba(255, 255, 255, 0.08) 60px,
-    rgba(255, 255, 255, 0.08) 61px
-  );
-}
-
-/* Mirrored decorative text */
-.mirror-text {
-  transform: scaleX(-1);
-  user-select: none;
-  pointer-events: none;
+  background-color: #F7F6F3;
+  color: #1A1A1A;
 }
