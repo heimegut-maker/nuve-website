@@ -37,7 +37,7 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${bebasNeue.variable} antialiased`}
       style={{ scrollBehavior: "smooth" }}
     >
-      <body className="min-h-full flex flex-col bg-white text-[#141432]">
+      <body className="min-h-full flex flex-col bg-[#08081A] text-white">
         {children}
       </body>
     </html>

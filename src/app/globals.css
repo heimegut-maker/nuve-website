@@ -5,14 +5,13 @@
   --font-inter: var(--font-inter);
   --font-bebas: var(--font-bebas-neue);
   --color-accent: #6366F1;
-  --color-accent-light: #6366F118;
-  --color-success: #22C55E;
-  --color-red-accent: #E42313;
-  --color-dark: #0D0D0D;
+  --color-teal: #5B8C9A;
+  --color-dark: #08081A;
   --color-dark-card: #1C1C3A;
+  --color-light: #F7F6F3;
   --color-text-primary: #141432;
   --color-text-secondary: #555555;
-  --color-border: #E5E7EB;
+  --color-border: #E0DED8;
 }
 
 html {
@@ -23,41 +22,29 @@ body {
   font-family: var(--font-inter), sans-serif;
 }
 
-/* Fade-in animation for scroll */
-.fade-in-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+/* Sparkle twinkle animation */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.05; }
+  50% { opacity: 0.35; }
 }
 
-.fade-in-section.visible {
-  opacity: 1;
-  transform: translateY(0);
+.sparkle {
+  animation: twinkle var(--dur, 3s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
 }
 
-/* Purple glow */
-.purple-glow {
-  box-shadow: 0 0 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(99, 102, 241, 0.15);
+/* Accent line pulse */
+@keyframes linePulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
 }
 
-/* Red glow for stats */
-.red-text-glow {
-  text-shadow: 0 0 40px rgba(228, 35, 19, 0.3);
+.accent-line-pulse {
+  animation: linePulse 4s ease-in-out infinite;
 }
 
-/* Ghost trail animation */
-@keyframes ghostTrail {
-  0% { opacity: 0; transform: translateY(10px); }
-  50% { opacity: 0.3; }
-  100% { opacity: 0; transform: translateY(-20px); }
-}
-
-.ghost-trail {
-  animation: ghostTrail 3s ease-in-out infinite;
-}
-
-.ghost-trail-delay {
-  animation: ghostTrail 3s ease-in-out infinite 1s;
+.accent-line-pulse-slow {
+  animation: linePulse 5s ease-in-out infinite 1s;
 }
 
 /* Diagonal lines pattern */
@@ -66,7 +53,14 @@ body {
     20deg,
     transparent,
     transparent 60px,
-    rgba(255, 255, 255, 0.02) 60px,
-    rgba(255, 255, 255, 0.02) 61px
+    rgba(255, 255, 255, 0.08) 60px,
+    rgba(255, 255, 255, 0.08) 61px
   );
+}
+
+/* Mirrored decorative text */
+.mirror-text {
+  transform: scaleX(-1);
+  user-select: none;
+  pointer-events: none;
 }
