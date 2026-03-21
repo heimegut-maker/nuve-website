@@ -147,12 +147,6 @@ img {
   overflow: hidden;
 }
 
-.spec-grid-bg {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
 
 .spec-inner {
   position: relative;
